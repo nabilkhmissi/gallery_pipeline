@@ -1,0 +1,6 @@
+<h1 style="text-align: center;">Gallery</h1>
+<div class="gallery-wrapper">
+  <div class="gallery-item" *ngFor="let p of gallery$ | async">
+    <img [src]="p.image" alt="" width="100%">
+  </div>
+</div>

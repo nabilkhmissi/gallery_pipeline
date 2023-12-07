@@ -1,0 +1,43 @@
+version: '3'
+services:
+  #============================= BACKEND =============================
+  backend_end:
+    build:
+      context: ./server
+    ports:
+      - 3000:3000
+    depends_on:
+      - gallery_db
+
+  #============================= FRONTEND =============================
+  front_end:
+    container_name: gallery_front
+    build:
+      context: ./front
+    ports:
+      - 4200:80
+  #============================= DATABASE =============================
+  gallery_db:
+    image: mongo
+    restart: always
+    ports:
+      - 27018:27017
+    #  environment:
+    #    MONGO_INITDB_ROOT_USERNAME: root
+    #    MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - gallery_db:/data
+  #============================ MONGO GUI ============================
+  #mongo-express:
+  #  image: mongo-express
+  #  restart: always
+  #  ports:
+  #    - 8081:8081
+  #  environment:
+  #    ME_CONFIG_MONGODB_SERVER: "gallery_db"
+  #    ME_CONFIG_MONGODB_PORT: "27017"
+  #    ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
+  #    ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #    ME_CONFIG_MONGODB_ADMINPASSWORD: root
+volumes:
+  gallery_db:

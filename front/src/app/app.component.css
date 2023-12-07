@@ -1,0 +1,11 @@
+.gallery-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery-item {
+    height: 300px;
+    width: 250px;
+    background-color: orange;
+}
