@@ -10,12 +10,12 @@ services:
       - gallery_db
 
   #============================= FRONTEND =============================
-  #front_end:
-  container_name: gallery_front
-  build:
-    context: ./front
-  ports:
-    - 4200:80
+  front_end:
+    container_name: gallery_front
+    build:
+      context: ./front
+    ports:
+      - 4200:80
   #============================= DATABASE =============================
   gallery_db:
     image: mongo
