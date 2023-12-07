@@ -26,6 +26,6 @@ services:
   #  #    MONGO_INITDB_ROOT_USERNAME: root
   #  #    MONGO_INITDB_ROOT_PASSWORD: root
   #  volumes:
-      - gallery_db:/data
+  #    - gallery_db:/data
 #volumes:
 #  gallery_db:
