@@ -1,31 +1,28 @@
 version: '3'
 services:
   #============================= BACKEND =============================
-  #backend_end:
-  #  build:
-  #    context: ./server
-  #  ports:
-  #    - 3000:3000
-  #  depends_on:
-  #    - gallery_db
+  backend_end:
+    build:
+      context: ./server
+    ports:
+      - 3000:3000
+    depends_on:
+      - gallery_db
 
   #============================= FRONTEND =============================
-  front_end:
-    container_name: gallery_front
-    build:
-      context: ./front
-    ports:
-      - 4200:80
-  #============================= DATABASE =============================
-  #gallery_db:
-  #  image: mongo
-  #  restart: always
+  #front_end:
+  #  container_name: gallery_front
+  #  build:
+  #    context: ./front
   #  ports:
-  #    - 27018:27017
-  #  #  environment:
-  #  #    MONGO_INITDB_ROOT_USERNAME: root
-  #  #    MONGO_INITDB_ROOT_PASSWORD: root
-  #  volumes:
-  #    - gallery_db:/data
-#volumes:
-#  gallery_db:
+  #    - 4200:80
+  #============================= DATABASE =============================
+  gallery_db:
+    image: mongo
+    restart: always
+    ports:
+      - 27018:27017
+    volumes:
+      - gallery_db:/data
+volumes:
+  gallery_db:
